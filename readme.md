@@ -64,9 +64,9 @@ This banner ad boilerplate requires [Node.js](https://nodejs.org/) v4+ to run.
 
 **Clean CSS Minifier Tool** | ``gulp clean-cssmintool``
 
-* This will clean the output/ folder inside Image Minifer tool.
+* This will clean the output/ folder inside CSS Minifer tool.
 
 
 **Clean JS Minifier Tool** | ``gulp clean-jsmintool``
 
-* This will clean the output/ folder inside Image Minifer tool.
+* This will clean the output/ folder inside JS Minifer tool.

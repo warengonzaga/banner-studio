@@ -23,6 +23,8 @@ Underdevelopment
 * The ``output/`` folder will auto generate with your minified and optimized images.
 * Enjoy!
 * 
+
+
 **CSS Minifier**
 
 * Go to ``tools/`` folder.

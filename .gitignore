@@ -1,0 +1,4 @@
+# Ignoring Files #
+##################
+.c9
+node_modules/

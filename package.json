@@ -1,0 +1,31 @@
+{
+  "name": "kdci_banner_studio",
+  "version": "1.0.0",
+  "description": "For KDCI Developers Purposes Only",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "banner",
+    "studio"
+  ],
+  "author": "Waren Gonzaga",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp-clean": "^0.3.2",
+    "gulp-filenames": "^4.0.0",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-jshint": "^2.0.1",
+    "gulp-minifier": "^0.1.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-lint": "^1.2.0",
+    "gulp-tinypng": "^1.0.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "jshint": "^2.9.3",
+    "jshint-stylish": "^2.2.1"
+  },
+  "dependencies": {}
+}

@@ -22,7 +22,6 @@ Underdevelopment
 * then do ``gulp imgmintool`` to start __minifying/optimizing__ your image.
 * The ``output/`` folder will auto generate with your minified and optimized images.
 * Enjoy!
-* 
 
 
 **CSS Minifier**
@@ -32,6 +31,16 @@ Underdevelopment
 * Inside ``input/`` folder put your css files (e.g. style.css) to be minified/optimized.
 * then do ``gulp cssmintool`` to start __minifying/optimizing__ your css files.
 * The ``output/`` folder will auto generate with your minified and optimized css files (e.g. style.min.css).
+* Enjoy!
+
+
+**JS Minifier**
+
+* Go to ``tools/`` folder.
+* Look for ``jsMinifier/`` folder.
+* Inside ``input/`` folder put your js files (e.g. script.js) to be minified/optimized.
+* then do ``gulp jsmintool`` to start __minifying/optimizing__ your js files.
+* The ``output/`` folder will auto generate with your minified and optimized js files (e.g. script.min.js).
 * Enjoy!
 
 ## Installation

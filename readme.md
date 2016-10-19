@@ -22,6 +22,15 @@ Underdevelopment
 * then do ``gulp imgmintool`` to start __minifying/optimizing__ your image.
 * The ``output/`` folder will auto generate with your minified and optimized images.
 * Enjoy!
+* 
+**CSS Minifier**
+
+* Go to ``tools/`` folder.
+* Look for ``cssMinifier/`` folder.
+* Inside ``input/`` folder put your css files (e.g. style.css) to be minified/optimized.
+* then do ``gulp cssmintool`` to start __minifying/optimizing__ your css files.
+* The ``output/`` folder will auto generate with your minified and optimized css files (e.g. style.min.css).
+* Enjoy!
 
 ## Installation
 This banner ad boilerplate requires [Node.js](https://nodejs.org/) v4+ to run.

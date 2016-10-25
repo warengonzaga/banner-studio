@@ -15,7 +15,8 @@
   "devDependencies": {
     "gulp-clean": "^0.3.2",
     "gulp-confirm": "^1.0.4",
-    "gulp-filenames": "^4.0.0",
+    "gulp-filenames": "^4.0.1",
+    "gulp-foreach": "^0.1.0",
     "gulp-help": "^1.6.1",
     "gulp-imagemin": "^3.0.3",
     "gulp-jshint": "^2.0.1",
@@ -29,6 +30,7 @@
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.7",
     "gulp-webserver": "^0.9.1",
+    "gulp-zip": "^3.2.0",
     "jshint": "^2.9.3",
     "jshint-stylish": "^2.2.1",
     "opn": "^4.0.2"

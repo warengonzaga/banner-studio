@@ -12,6 +12,9 @@ var gulp = require('gulp-help')(require('gulp')),
 	plumber = require('gulp-plumber'),
 	options = require('gulp-options'),
 	confirm = require('gulp-confirm'),
+	zip = require('gulp-zip'),
+	filenames = require('gulp-filenames'),
+	foreach = require('gulp-foreach'),
 	opn = require('opn');
 
 //Paths Directories
@@ -24,9 +27,13 @@ var paths = {
 	jsMinToolInput: 'tools/jsMinifier/input/**/*',
 	jsMinToolOutput: 'tools/jsMinifier/output',
 
-	//CssMinifier paths
+	//cssMinifier paths
 	cssMinToolInput: 'tools/cssMinifier/input/**/*',
-	cssMinToolOutput: 'tools/cssMinifier/output'
+	cssMinToolOutput: 'tools/cssMinifier/output',
+	
+	//zipMaker paths
+	zipMakerToolInput: 'tools/zipMaker/input/*',
+	zipMakerToolOutput: 'tools/zipMaker/output'
 };
 
 /*var server = {
@@ -203,6 +210,59 @@ gulp.task('cssmintool', 'Minify your CSS files.', function() {
     }	
 }, {	aliases: ['css-m'], 
 		options: {
+			'clean':'Delete input and output files.',
+			'output':'Use with --clean to delete the output files.',
+			'input':'Use with --clean to delete the input files.'
+		}
+});
+
+//Zip Maker
+gulp.task('zipup', 'Zip your folders.', function() {
+	
+	if (options.has('clean')) {
+    
+	    if (options.has('input')){
+	    	gulp.src([paths.zipMakerToolInput])
+			.pipe(clean());
+	    } else if (options.has('output')){
+	    	gulp.src([paths.zipMakerToolOutput])
+			.pipe(clean());
+	    } else if (options.has('clean')) {
+	    	gulp.src([paths.zipMakerToolInput,paths.zipMakerToolOutput])
+	    	.pipe(confirm({
+		      question: 'Are you sure you want to delete the input and output files? [y/n]',
+		      input: '_key:y'
+    		}))
+    		.pipe(clean());
+	    } else {
+	    	return false;
+	    }
+	    
+    } else if (options.has('input')) {
+    	gutil.log(gutil.colors.yellow('============================================================='));
+    	gutil.log(gutil.colors.yellow('WARNING: Use it with'),'--clean',gutil.colors.yellow('option to delete input files!!!'));
+    	gutil.log(gutil.colors.yellow('EXAMPLE: gulp zipup'),'--clean --input');
+	    gutil.log(gutil.colors.yellow('============================================================='));
+	    
+    } else if (options.has('output')) {
+    	gutil.log(gutil.colors.yellow('============================================================='));
+    	gutil.log(gutil.colors.yellow('WARNING: Use it with'),'--clean',gutil.colors.yellow('option to delete output files!!!'));
+    	gutil.log(gutil.colors.yellow('EXAMPLE: gulp zipup'),'--clean --output');
+	    gutil.log(gutil.colors.yellow('============================================================='));
+    
+    } else {
+	return gulp.src(paths.zipMakerToolInput)
+       .pipe(foreach(function(stream, file){
+          var fileName = file.path.substr(file.path.lastIndexOf("/")+1);
+          gulp.src(paths.zipMakerToolInput+fileName+"/**/*")
+              .pipe(zip(fileName+".zip"))
+              .pipe(gulp.dest(paths.zipMakerToolOutput));
+
+          return stream;
+       }));
+    }
+}, {
+	options: {
 			'clean':'Delete input and output files.',
 			'output':'Use with --clean to delete the output files.',
 			'input':'Use with --clean to delete the input files.'

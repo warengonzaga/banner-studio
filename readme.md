@@ -13,6 +13,7 @@ Underdevelopment
     * Image Minifier (gulp imgmintool)
     * CSS Minifier (gulp cssmintool)
     * JS Minifier (gulp jsmintool)
+    * Help (gulp help)
     
 **Image Minifier**
 
@@ -50,23 +51,3 @@ This banner ad boilerplate requires [Node.js](https://nodejs.org/) v4+ to run.
     $ sudo npm install
     $ sudo npm install gulp
 ```
-
-## Advance Commands
-**Clean Tool** | ``gulp cleantool``
-
-* This will clean all the output/ folder inside tools.
-
-
-**Clean Image Minifier Tool** | ``gulp clean-imgmintool``
-
-* This will clean the output/ folder inside Image Minifer tool.
-
-
-**Clean CSS Minifier Tool** | ``gulp clean-cssmintool``
-
-* This will clean the output/ folder inside CSS Minifer tool.
-
-
-**Clean JS Minifier Tool** | ``gulp clean-jsmintool``
-
-* This will clean the output/ folder inside JS Minifer tool.

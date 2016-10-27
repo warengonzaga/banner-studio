@@ -15,6 +15,9 @@ var gulp = require('gulp-help')(require('gulp')),
 	zip = require('gulp-zip'),
 	filenames = require('gulp-filenames'),
 	foreach = require('gulp-foreach'),
+	insert = require('gulp-insert'),
+	insertLines = require('gulp-insert-lines'),
+	fs = require('fs'),
 	opn = require('opn');
 
 //Paths Directories
@@ -54,6 +57,22 @@ gulp.task('webserver', function() {
       directoryListing: false
     }));
 });*/
+
+//***** Banners Task *****//
+
+gulp.task('createBanners', 'Generate banners', function() {
+	var bannerData = JSON.parse(fs.readFileSync('banners/source/settings/banner-properties.json'));
+	var dimensions = bannerData.bannerProperties.dimensions[0];
+	
+	var bannerwidth = dimensions.slice(0,3);
+	var bannerheight = dimensions.slice(4);
+	
+	gulp.src('banners/source/template/css/_properties.scss')
+	.pipe(insert.append('$banner-width: '+bannerwidth+'px;\n'))
+	.pipe(insert.append('$banner-height: '+bannerheight+'px;'))
+	.pipe(gulp.dest('banners/production/'+dimensions));
+	
+});
 
 //***** Tools Tasks *****//
 

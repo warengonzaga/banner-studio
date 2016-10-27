@@ -217,7 +217,7 @@ gulp.task('cssmintool', 'Minify your CSS files.', function() {
 });
 
 //Zip Maker
-gulp.task('zipup', 'Zip your folders.', function() {
+gulp.task('ziptool', 'Zip your folders individually.', function() {
 	
 	if (options.has('clean')) {
     
@@ -237,6 +237,11 @@ gulp.task('zipup', 'Zip your folders.', function() {
 	    } else {
 	    	return false;
 	    }
+	    
+	} else if (options.has('asone')) {
+		return gulp.src(paths.zipMakerToolInput+'/**/*')
+			.pipe(zip('package.zip'))
+			.pipe(gulp.dest(paths.zipMakerToolOutput));
 	    
     } else if (options.has('input')) {
     	gutil.log(gutil.colors.yellow('============================================================='));
@@ -262,7 +267,10 @@ gulp.task('zipup', 'Zip your folders.', function() {
        }));
     }
 }, {
+	
+	aliases: ['zip-m'],
 	options: {
+			'asone':'Zip your files into one.',
 			'clean':'Delete input and output files.',
 			'output':'Use with --clean to delete the output files.',
 			'input':'Use with --clean to delete the input files.'
@@ -273,6 +281,7 @@ gulp.task('zipup', 'Zip your folders.', function() {
 gulp.task('img-m', false, ['imgmintool']);
 gulp.task('js-m', false, ['jsmintool']);
 gulp.task('css-m', false, ['cssmintool']);
+gulp.task('zip-m', false, ['ziptool']);
 
 //Default Tasks
 gulp.task('default', false, function() {

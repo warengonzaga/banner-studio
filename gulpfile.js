@@ -18,6 +18,8 @@ var gulp = require('gulp-help')(require('gulp')),
 	insert = require('gulp-insert'),
 	insertLines = require('gulp-insert-lines'),
 	fs = require('fs'),
+	runSeq = require('run-sequence'),
+	path = require('path'),
 	opn = require('opn');
 
 //Paths Directories
@@ -36,7 +38,11 @@ var paths = {
 	
 	//zipMaker paths
 	zipMakerToolInput: 'tools/zipMaker/input/*',
-	zipMakerToolOutput: 'tools/zipMaker/output'
+	zipMakerToolOutput: 'tools/zipMaker/output',
+
+	//bannerTemplate paths
+	bannerTemplate: 'banners/source/template',
+	bannerProduction: 'banners/production'
 };
 
 /*var server = {
@@ -59,20 +65,53 @@ gulp.task('webserver', function() {
 });*/
 
 //***** Banners Task *****//
+var bannerData = JSON.parse(fs.readFileSync('banners/source/settings/banner-properties.json'));
+var dimensions = "";
 
 gulp.task('createBanners', 'Generate banners', function() {
-	var bannerData = JSON.parse(fs.readFileSync('banners/source/settings/banner-properties.json'));
-	var dimensions = bannerData.bannerProperties.dimensions[0];
-	
+
+	runSeq('createSizes', 'injectProperties');
+
+});
+
+gulp.task('createSizes', false, ()=> {
+	for (i = 0; i < bannerData.bannerProperties.dimensions.length; i++) { 
+		dimensions = bannerData.bannerProperties.dimensions[i];
+
+	gulp.src(paths.bannerTemplate+'/**/*')
+		.pipe(gulp.dest(paths.bannerProduction+'/'+dimensions));
+
+	}
+})
+
+gulp.task('injectProperties', false, ()=> {
+	for (i = 0; i < bannerData.bannerProperties.dimensions.length; i++) { 
+		dimensions = bannerData.bannerProperties.dimensions[i];
+
 	var bannerwidth = dimensions.slice(0,3);
 	var bannerheight = dimensions.slice(4);
-	
-	gulp.src('banners/source/template/css/_properties.scss')
-	.pipe(insert.append('$banner-width: '+bannerwidth+'px;\n'))
-	.pipe(insert.append('$banner-height: '+bannerheight+'px;'))
-	.pipe(gulp.dest('banners/production/'+dimensions));
-	
-});
+
+	gulp.src(paths.bannerProduction+'/'+dimensions+'/css/_properties.scss')
+		.pipe(insert.append('$banner-width: '+bannerwidth+'px;\n'))
+		.pipe(insert.append('$banner-width: '+bannerheight+'px;'))
+		.pipe(gulp.dest(paths.bannerProduction+'/'+dimensions+'/css'))
+	}
+})
+
+
+
+/*gulp.task('img', false, ()=> {
+	img.pipe(gulp.dest(paths.bannerProduction+'/'+dimensions+'/img'))
+})
+
+gulp.task('sass', false, ()=> {
+	var bannerwidth = dimensions.slice(0,3);
+	var bannerheight = dimensions.slice(4);
+
+	propertiesScss.pipe(insert.append('$banner-width: '+bannerwidth+'px;\n'))
+			 	  .pipe(insert.append('$banner-width: '+bannerheight+'px;'))
+				  .pipe(gulp.dest(paths.bannerProduction+'/'+dimensions+'/css'))
+});*/
 
 //***** Tools Tasks *****//
 
@@ -278,7 +317,7 @@ gulp.task('ziptool', 'Zip your folders individually.', function() {
 	return gulp.src(paths.zipMakerToolInput)
        .pipe(foreach(function(stream, file){
           var fileName = file.path.substr(file.path.lastIndexOf("/")+1);
-          gulp.src(paths.zipMakerToolInput+fileName+"/**/*")
+          gulp.src(cwd: paths.zipMakerToolInput+fileName+"**/*")
               .pipe(zip(fileName+".zip"))
               .pipe(gulp.dest(paths.zipMakerToolOutput));
 

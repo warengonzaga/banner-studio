@@ -317,7 +317,8 @@ gulp.task('ziptool', 'Zip your folders individually.', function() {
 	return gulp.src(paths.zipMakerToolInput)
        .pipe(foreach(function(stream, file){
           var fileName = file.path.substr(file.path.lastIndexOf("/")+1);
-          gulp.src(cwd: paths.zipMakerToolInput+fileName+"**/*")
+          var packageName = ('./tools/zipMaker/input/'+fileName);
+          gulp.src(paths.zipMakerToolInput+fileName+'/**/*', {base: packageName})
               .pipe(zip(fileName+".zip"))
               .pipe(gulp.dest(paths.zipMakerToolOutput));
 

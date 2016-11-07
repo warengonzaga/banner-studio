@@ -1,8 +1,8 @@
-# KDCI BANNER BOILERPLATE
+# BANNER STUDIO [Automated Banner Ad Maker]
 Banner Ad Boilerplate for faster banner ad production.
 
 ### Note
-This is for KDCI Developers purposes only.
+For HTML5 Banner Ad Developers purposes only
 Underdevelopment
 
 ## Usage

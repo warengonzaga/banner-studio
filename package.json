@@ -1,7 +1,7 @@
 {
-  "name": "kdci_banner_studio",
+  "name": "banner_studio",
   "version": "1.0.0",
-  "description": "For KDCI Developers Purposes Only",
+  "description": "Banner Ad Maker",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

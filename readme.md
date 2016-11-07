@@ -14,6 +14,7 @@ Underdevelopment
     * CSS Minifier (gulp cssmintool)
     * JS Minifier (gulp jsmintool)
     * Help (gulp help)
+	* Info (gulp info)
     
 **Image Minifier**
 
@@ -44,10 +45,22 @@ Underdevelopment
 * The ``output/`` folder will auto generate with your minified and optimized js files (e.g. script.min.js).
 * Enjoy!
 
+
+**ZIP Maker**
+
+* Go to ``tools/`` folder.
+* Look for ``zipMaker/`` folder.
+* Inside ``input/`` folder put your js files (e.g. script.js) to be minified/optimized.
+* then do ``gulp ziptool`` to start __packaging__ your js files.
+* The ``output/`` folder will auto generate with your zipped files files (e.g. pacakge.zip).
+* Enjoy!
+
 ## Installation
 This banner ad boilerplate requires [Node.js](https://nodejs.org/) v4+ to run.
 
 ```sh
     $ sudo npm install
-    $ sudo npm install gulp
+    $ sudo npm install -g gulp
 ```
+
+## Wait for more updates still in alpha version

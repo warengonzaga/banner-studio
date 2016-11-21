@@ -591,7 +591,7 @@ gulp.task('ziptool', gulpMessages.gulpZipTool, function() {
 	
 	aliases: ['zip-m'],
 	options: {
-			'banner':'Zip your files for '
+			'banner':'Zip your files for ',
 			'asone':'Zip your files into one.',
 			'clean':'Delete input and output files.',
 			'output':'Use with --clean to delete the output files.',

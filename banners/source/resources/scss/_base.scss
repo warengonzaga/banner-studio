@@ -1,0 +1,43 @@
+#banner {
+  position: relative;
+  @extend .full-dimension;
+  overflow: hidden;
+
+  &-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $banner-width - 2;
+    height: $banner-height - 2;
+    border: 1px solid #000;
+  }
+}
+
+/* Helper Classes */
+.assets {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.hide {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.full-dimension {
+  width: $banner-width;
+  height: $banner-height;
+}
+
+#banner-exit {
+  background-color: rgba(255,255,255,0);
+  cursor: pointer;
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}

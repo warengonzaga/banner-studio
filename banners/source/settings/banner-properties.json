@@ -1,0 +1,13 @@
+{
+    "bannerProperties":{
+        "title":"KDCI Banner Ads",
+        "dimensions":[
+            "728x90",
+            "160x600",
+            "300x250",
+            "600x600"
+        ],
+        "bannertype": "doubleclick",
+        "gsap": "TweenLite"
+    }
+}

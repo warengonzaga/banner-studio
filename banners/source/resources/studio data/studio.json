@@ -1,0 +1,42 @@
+{
+    "studiodata":{
+        "studioname":"KDCI Banner Studio",
+        "version":"alpha-0.2.0",
+        "build":"3",
+        "developer":"Waren Gonzaga",
+        "codeveloper":"Rowin Mandia",
+        "company":"Key Discovery Consulting Inc.",
+        "description":"Automated Banner Maker",
+        "usefulcmd":"gulp-help",
+        "gitrepo":"https://bitbucket.org/WarenGonzaga/kdci-banner-studio",
+        "year":"2016",
+
+        "gulphelp":{
+            "gulpInfo":"Show more info about this project",
+            "gulpCreateBanners":"Generate banners",
+            "gulpImgMinTool":"Optimize your images",
+            "gulpJSMinTool":"Minify your JavaScript files",
+            "gulpCSSMinTool":"Minify your CSS files",
+            "gulpZipTool":"Zip your folders individually"
+        },
+
+        "gsaplinks":[
+            "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js",
+            "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js",
+            "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js",
+            "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js",
+            "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TimelineMax.min.js",
+            "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TimelineLite.min.js",
+            "https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.19.0_643d6911392a3398cb1607993edabfa7_min.js",
+            "https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_1.19.0_cfbff7d208ccfdbe176b9855af1eb1fa_min.js",
+            "https://s0.2mdn.net/ads/studio/cached_libs/easepack_1.19.0_be87087c08fcec83e2b64c70571fe91f_min.js",
+            "https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_1.19.0_422f021fad4c20f20cf3640a06ac39e9_min.js",
+            "https://s0.2mdn.net/ads/studio/cached_libs/timelinemax_1.19.0_4cba7b163d6263b39d53727ed4c7bb6f_min.js",
+            "https://s0.2mdn.net/ads/studio/cached_libs/timelinelite_1.19.0_13e3bd0e510d63fd5e5ef9bf9dac7017_min.js"
+        ],
+
+        "misc":[
+            "============================================================="
+        ]
+    }
+}
